@@ -4,10 +4,17 @@ const todoControl = document.querySelector('.todo-control'),
     headerInput = document.querySelector('.header-input'),
     todoList = document.querySelector('.todo-list'),
     todoCompleted = document.querySelector('.todo-completed');
+        let todoData = [];
+    
+    let localMemory = function() {
+        if (localStorage.getItem('Tasks') === null) {
+            return;
+        } else {    
+            todoData = JSON.parse(localStorage.getItem('Tasks'));
+        }
+    };
 
-    let todoData = [];
-
-    todoData = (JSON.parse((localStorage.getItem('Tasks'))));
+localMemory();
 
 const render = function(){
     todoList.textContent = '';
