@@ -9,12 +9,9 @@ const todoControl = document.querySelector('.todo-control'),
 
     todoData = (JSON.parse((localStorage.getItem('Tasks'))));
 
-    console.log(todoData);
-
 const render = function(){
     todoList.textContent = '';
     todoCompleted.textContent = '';
-
 
     todoData.forEach(function(item){
         const li = document.createElement('li');
@@ -46,7 +43,7 @@ const render = function(){
             todoData.splice(index, 1);
 
             localStorage.setItem('Tasks', JSON.stringify(todoData));
-            
+
             }
             render();
         });
